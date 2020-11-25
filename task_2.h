@@ -8,7 +8,6 @@
 #include <list>
 #include <map>
 #include <cstdlib>
-#include <stdlib.h>
 #include <cmath>
 
 struct s_coord

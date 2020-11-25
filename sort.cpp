@@ -24,8 +24,8 @@ void    remove_useless_points(s_data *data) {
 }
 
 void    sort_alpha(s_data *data) {
-
     auto it = data->points.begin();
+
     while (it != data->points.end()) {
         alpha.push_back(it->alpha);
         x_map.insert({it->alpha, it->x});

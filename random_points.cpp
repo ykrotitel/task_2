@@ -9,15 +9,14 @@ int y;
 int radius;
 
 static int set_flag() {
-    int f;
-    f = rand() % 2;
-    if (!f)
-        f = -1;
-    return (f);
+    if (rand() % 2)
+        return 1;
+    return -1;
 }
 
 double       set_alpha() {
     double sinus;
+
     if (x > 0 && y > 0) {
         sinus = (double)y / (double)radius;
         return (asin(sinus)/M_PI * 180);
@@ -46,6 +45,10 @@ void    make_random_points(s_data *data) {
         y = (rand() % 101) * set_flag();
         i++;
         radius = sqrt(abs(x)*abs(x) + abs(y)*abs(y));
-        data->points.push_back({.x = x, .y = y, .radius = radius, .alpha = set_alpha()});
+        data->points.push_back({
+                                .x = x,
+                                .y = y,
+                                .radius = radius,
+                                .alpha = set_alpha()});
     }
 }
