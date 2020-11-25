@@ -5,27 +5,29 @@
 #pragma once
 
 #include <iostream>
-#include <vector>
 #include <list>
+#include <map>
+#include <cstdlib>
+#include <stdlib.h>
+#include <cmath>
 
-typedef struct s_coord
+struct s_coord
 {
     int         x;
     int         y;
     int         radius;
     double      alpha;
-}               t_coord;
+};
 
-using Vector = std::vector <t_coord>;
-using List = std::list <t_coord>;
+using List = std::list <s_coord>;
 
-typedef struct  s_data
+struct  s_data
 {
     int         N;
-//    Vector      points;
     List        points;
-}               t_data;
+};
 
-void    make_random_points(t_data *data);
-void    visualizer(t_data *data);
-void    remove_useless_points(t_data *data);
+void    make_random_points(s_data *data);
+void    remove_useless_points(s_data *data);
+void    sort_alpha(s_data *data);
+void    show_solution(s_data *data);

@@ -3,15 +3,10 @@
 //
 
 #include "task_2.h"
-#include <cstdlib>
-//#include <math.h>
-#include <cmath>
 
-using namespace std;
 int x;
 int y;
 int radius;
-int alpha;
 
 static int set_flag() {
     int f;
@@ -39,22 +34,18 @@ double       set_alpha() {
     return (asin(sinus)/M_PI * 180 + 270);
 }
 
-void    make_random_points(t_data *data) {
+void    make_random_points(s_data *data) {
     int count;
 
-    cin >> data->N;
+    std::cin >> data->N;
     count = -1;
+    int i = 5;
+    srand(time(nullptr));
     while (++count != data->N) {
-
         x = (rand() % 101) * set_flag();
         y = (rand() % 101) * set_flag();
+        i++;
         radius = sqrt(abs(x)*abs(x) + abs(y)*abs(y));
         data->points.push_back({.x = x, .y = y, .radius = radius, .alpha = set_alpha()});
-    }
-
-    auto it = data->points.begin();
-    while (it != data->points.end()) {
-        cout << "radius = " << it->radius << endl;
-        advance(it, 1);
     }
 }
